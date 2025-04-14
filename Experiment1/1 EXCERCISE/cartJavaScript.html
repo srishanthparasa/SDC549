@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart Page Explanation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        h1, h2, h3 {
+            color: #333;
+        }
+        .section {
+            background: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        code {
+            display: block;
+            background: #eee;
+            padding: 10px;
+            border-radius: 5px;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body>
+    <h1>Cart Page HTML Code Explanation</h1>
+    
+    <div class="section">
+        <h2>1. Overview</h2>
+        <p>This page represents a shopping cart for an online eBook store (ACE). It includes a header, navigation menu, cart table, and footer.</p>
+    </div>
+    
+    <div class="section">
+        <h2>2. HTML Code Breakdown</h2>
+        
+        <h3>🔹 Head Section</h3>
+        <code>
+        &lt;head&gt;
+            &lt;link rel="stylesheet" href="./style.css"&gt;
+            &lt;title&gt;Cart - ACE&lt;/title&gt;
+        &lt;/head&gt;
+        </code>
+        <p><strong>Explanation:</strong> Links an external CSS file for styling and defines the page title.</p>
+
+        <h3>🔹 Header Section</h3>
+        <code>
+        &lt;header&gt;
+            &lt;table width="100%"&gt;
+                &lt;tr&gt;
+                    &lt;th&gt;
+                        &lt;img src="ace.png" alt="ACE LOGO" width="130" height="100"/&gt;
+                    &lt;/th&gt;
+                    &lt;th&gt;
+                        &lt;h1&gt;ACE - WORLD BEST ONLINE EBOOKS WEBSITE&lt;/h1&gt;
+                    &lt;/th&gt;
+                &lt;/tr&gt;
+            &lt;/table&gt;
+        &lt;/header&gt;
+        </code>
+        <p><strong>Explanation:</strong> Displays the website logo and title using a table structure.</p>
+    </div>
+    
+    <div class="section">
+        <h3>🔹 Navigation Menu</h3>
+        <code>
+        &lt;nav&gt;
+            &lt;table width="100%" align="center"&gt;
+                &lt;tr&gt;
+                    &lt;td&gt;&lt;a href="index.html"&gt;Home&lt;/a&gt;&lt;/td&gt;
+                    &lt;td&gt;&lt;a href="login.html"&gt;Login&lt;/a&gt;&lt;/td&gt;
+                    &lt;td&gt;&lt;a href="registration.html"&gt;Registration&lt;/a&gt;&lt;/td&gt;
+                    &lt;td&gt;&lt;a href="cart.html"&gt;Cart&lt;/a&gt;&lt;/td&gt;
+                &lt;/tr&gt;
+            &lt;/table&gt;
+        &lt;/nav&gt;
+        </code>
+        <p><strong>Explanation:</strong> Creates navigation links to different pages.</p>
+    </div>
+
+    <div class="section">
+        <h3>🔹 Cart Table</h3>
+        <code>
+        &lt;main&gt;
+            &lt;table width="100%"&gt;
+                &lt;tr&gt;
+                    &lt;th&gt;Book Name&lt;/th&gt;
+                    &lt;th&gt;Price&lt;/th&gt;
+                    &lt;th&gt;Quantity&lt;/th&gt;
+                    &lt;th&gt;Amount&lt;/th&gt;
+                &lt;/tr&gt;
+                &lt;tr&gt;
+                    &lt;td&gt;Java Programming&lt;/td&gt;
+                    &lt;td&gt;Rs. 2300/-&lt;/td&gt;
+                    &lt;td&gt;2&lt;/td&gt;
+                    &lt;td&gt;Rs. 4600/-&lt;/td&gt;
+                &lt;/tr&gt;
+            &lt;/table&gt;
+        &lt;/main&gt;
+        </code>
+        <p><strong>Explanation:</strong> Displays items in the cart along with prices.</p>
+    </div>
+    
+    <div class="section">
+        <h3>🔹 Footer Section</h3>
+        <code>
+        &lt;footer&gt;
+            &lt;p&gt;(C) 2024 All rights reserved by ACE ebooks&lt;/p&gt;
+        &lt;/footer&gt;
+        </code>
+        <p><strong>Explanation:</strong> Displays copyright information.</p>
+    </div>
+    
+    <div class="section">
+        <h2>3. Hands-on Activity</h2>
+        <ul>
+            <li>Add a "Remove" button for each book.</li>
+            <li>Use CSS to style the cart table properly.</li>
+            <li>Enhance with JavaScript to update quantity dynamically.</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>4. Summary</h2>
+        <p>🔹 HTML Structure: Header, Nav, Main Content (Cart Table), Footer.</p>
+        <p>🔹 Best Practices: Use CSS Grid/Flexbox instead of tables for layout.</p>
+        <p>🔹 Next Steps: Implement JavaScript for interactivity.</p>
+    </div>
+</body>
+</html>

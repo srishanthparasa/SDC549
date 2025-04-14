@@ -1,0 +1,312 @@
+<h2 class="_heading_1n0hj_2 heading _size:h3_1n0hj_75 _heading_1f9ui_171 _headingWithControls_1f9ui_371" style="--annotation: &quot;Headline 3&quot;; font-family: &quot;Google Sans&quot;, &quot;Google Sans Text&quot;, Roboto, Arial, sans-serif; color: rgb(32, 33, 36); font-size: 40px; line-height: 50px; font-weight: 500; letter-spacing: -0.5px; margin-bottom: 16px; text-wrap: balance; width: 566px; font-style: normal;">
+  <p>Your CSS is well-structured, but here are some <strong>improvements and best practices</strong> for better responsiveness and maintainability:</p>
+  <hr>
+</h2>
+<h3>🔹 <strong>Key Improvements &amp; Fixes</strong></h3>
+<h2 class="_heading_1n0hj_2 heading _size:h3_1n0hj_75 _heading_1f9ui_171 _headingWithControls_1f9ui_371" style="--annotation: &quot;Headline 3&quot;; font-family: &quot;Google Sans&quot;, &quot;Google Sans Text&quot;, Roboto, Arial, sans-serif; color: rgb(32, 33, 36); font-size: 40px; line-height: 50px; font-weight: 500; letter-spacing: -0.5px; margin-bottom: 16px; text-wrap: balance; width: 566px; font-style: normal;">
+  <ol>
+    <li>
+      <p><strong>Font-Family Issue:</strong></p>
+      <ul>
+        <li><code inline="">'poppins'</code> is not a system font. Ensure you import it in the <code inline="">&lt;head&gt;</code>:
+          <pre><code class="language-html">&lt;link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&amp;display=swap" rel="stylesheet"&gt;
+</code></pre>
+        </li>
+        <li>Or use a fallback:
+          <pre><code class="language-css">font-family: 'Poppins', sans-serif;
+</code></pre>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <p><strong>Improve Mobile Responsiveness:</strong></p>
+      <ul>
+        <li>The <code inline="">.container</code> width is <strong>fixed at 70%</strong>, which may not be mobile-friendly.</li>
+        <li>Add a <strong>media query</strong> for better scaling:
+          <pre><code class="language-css">@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        width: 90%;
+    }
+    #root, .sidebar {
+        width: 100%;
+    }
+    .header {
+        width: 90%;
+        flex-direction: column;
+        text-align: center;
+    }
+    .cart {
+        margin-top: 10px;
+    }
+}
+</code></pre>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <p><strong>Fix Button Width for Better Layout:</strong></p>
+      <ul>
+        <li>Right now, buttons take up <strong>100% width</strong>. Instead, limit their width:
+          <pre><code class="language-css">button {
+    width: auto;
+    min-width: 150px;
+}
+</code></pre>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <p><strong>Fix <code inline="">h2</code> Color (Avoid Using Red for Prices)</strong>:</p>
+      <ul>
+        <li>Red usually <strong>indicates an error or warning</strong>. Instead, use:
+          <pre><code class="language-css">h2 {
+    font-size: 20px;
+    color: #444;
+}
+</code></pre>
+        </li>
+      </ul>
+    </li>
+  </ol>
+  <hr>
+</h2>
+<h3>✅ <strong>Final Optimized CSS (with fixes)</strong></h3>
+<h2 class="_heading_1n0hj_2 heading _size:h3_1n0hj_75 _heading_1f9ui_171 _headingWithControls_1f9ui_371" style="--annotation: &quot;Headline 3&quot;; font-family: &quot;Google Sans&quot;, &quot;Google Sans Text&quot;, Roboto, Arial, sans-serif; color: rgb(32, 33, 36); font-size: 40px; line-height: 50px; font-weight: 500; letter-spacing: -0.5px; margin-bottom: 16px; text-wrap: balance; width: 566px; font-style: normal;">
+  <pre><code class="language-css">/* Import Poppins Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&amp;display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #f8f8f8;
+}
+
+/* Header */
+.header {
+    height: 80px;
+    width: 70%;
+    background-color: goldenrod;
+    border-radius: 3px;
+    margin: 30px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+}
+
+.header .logo {
+    font-size: 30px;
+    font-weight: bold;
+    color: white;
+}
+
+/* Cart Styling */
+.cart {
+    display: flex;
+    background-color: white;
+    justify-content: space-between;
+    align-items: center;
+    padding: 7px 10px;
+    border-radius: 3px;
+    width: 80px;
+}
+
+.fa-solid {
+    color: goldenrod;
+}
+
+.cart p {
+    height: 22px;
+    width: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: goldenrod;
+    color: white;
+}
+
+/* Container */
+.container {
+    display: flex;
+    width: 70%;
+    margin-bottom: 30px;
+}
+
+/* Root (Product List) */
+#root {
+    width: 60%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+/* Sidebar (Cart) */
+.sidebar {
+    width: 40%;
+    border-radius: 5px;
+    background-color: #eee;
+    margin-left: 20px;
+    padding: 15px;
+    text-align: center;
+}
+
+/* Cart Head */
+.head {
+    background-color: goldenrod;
+    border-radius: 3px;
+    height: 40px;
+    padding: 10px;
+    margin-bottom: 20px;
+    color: white;
+    display: flex;
+    align-items: center;
+}
+
+/* Cart Footer */
+.foot {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+    padding: 10px 0;
+    border-top: 1px solid #333;
+}
+
+/* Product Box */
+.box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid goldenrod;
+    border-radius: 5px;
+    padding: 15px;
+    background-color: white;
+}
+
+/* Image Container */
+.img-box {
+    width: 100%;
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.images {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* Product Bottom Section */
+.bottom {
+    margin-top: 20px;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 110px;
+}
+
+h2 {
+    font-size: 20px;
+    color: #444;
+}
+
+/* Button Styles */
+button {
+    width: auto;
+    min-width: 150px;
+    border: none;
+    border-radius: 5px;
+    background-color: goldenrod;
+    padding: 7px 25px;
+    cursor: pointer;
+    color: white;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: #333;
+}
+
+/* Cart Item Styling */
+.cart-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: white;
+    border-bottom: 1px solid #aaa;
+    border-radius: 3px;
+    margin: 10px;
+}
+
+/* Cart Item Image */
+.row-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    border: 1px solid goldenrod;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.rowimg {
+    max-width: 43px;
+    max-height: 43px;
+    border-radius: 50%;
+}
+
+/* Delete Icon */
+.fa-trash:hover {
+    cursor: pointer;
+    color: #333;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        width: 90%;
+    }
+    #root, .sidebar {
+        width: 100%;
+    }
+    .header {
+        width: 90%;
+        flex-direction: column;
+        text-align: center;
+    }
+    .cart {
+        margin-top: 10px;
+    }
+}
+</code></pre>
+  <hr>
+</h2>
+<h3>🔹 <strong>Summary of Changes</strong></h3>
+<h2 class="_heading_1n0hj_2 heading _size:h3_1n0hj_75 _heading_1f9ui_171 _headingWithControls_1f9ui_371" style="--annotation: &quot;Headline 3&quot;; font-family: &quot;Google Sans&quot;, &quot;Google Sans Text&quot;, Roboto, Arial, sans-serif; color: rgb(32, 33, 36); font-size: 40px; line-height: 50px; font-weight: 500; letter-spacing: -0.5px; margin-bottom: 16px; text-wrap: balance; width: 566px; font-style: normal;">
+  <p>✅ <strong>Imported Google Fonts</strong> for proper <code inline="">Poppins</code> rendering<br>
+    ✅ <strong>Made the layout responsive</strong> using <code inline="">@media</code> queries<br>
+    ✅ <strong>Fixed button width issue</strong> (previously stretched too wide)<br>
+    ✅ <strong>Changed <code inline="">h2</code> text color</strong> (avoid red for prices)<br>
+    ✅ <strong>Improved spacing &amp; consistency</strong> for better readability</p>
+  <p>Your shopping cart UI is now well-optimized! 🚀 Let me know if you need further modifications! 😊</p>
+</h2>
